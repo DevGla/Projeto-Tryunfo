@@ -24,6 +24,7 @@ class Form extends React.Component {
             nome Da Carta
             <input
               type="text"
+              name="cardName"
               id="nome"
               data-testid="name-input"
               value={ cardName }
@@ -34,6 +35,7 @@ class Form extends React.Component {
             Descrição da carta
             <input
               type="textarea"
+              name="cardDescription"
               id="area"
               data-testid="description-input"
               value={ cardDescription }
@@ -44,6 +46,7 @@ class Form extends React.Component {
             Primeiro atributo da Carta
             <input
               type="number"
+              name="cardAttr1"
               id="primeiro-atributo"
               data-testid="attr1-input"
               value={ cardAttr1 }
@@ -54,6 +57,7 @@ class Form extends React.Component {
             segundo atributo da Carta
             <input
               type="number"
+              name="cardAttr2"
               id="segundo-atributo"
               data-testid="attr2-input"
               value={ cardAttr2 }
@@ -64,6 +68,7 @@ class Form extends React.Component {
             terceiro atributo da Carta
             <input
               type="number"
+              name="cardAttr3"
               id="terceiro-atributo"
               data-testid="attr3-input"
               value={ cardAttr3 }
@@ -74,6 +79,7 @@ class Form extends React.Component {
             caminhoDaImagem
             <input
               type="text"
+              name="cardImage"
               id="caminho"
               data-testid="image-input"
               value={ cardImage }
@@ -82,6 +88,7 @@ class Form extends React.Component {
           </label>
           <select
             data-testid="rare-input"
+            name="cardRare"
             value={ cardRare }
             onChange={ onInputChange }
           >
@@ -93,6 +100,7 @@ class Form extends React.Component {
             SuperTrunfo
             <input
               type="checkbox"
+              name="cardTrunfo"
               data-testid="trunfo-input"
               id="superTrunfo"
               checked={ cardTrunfo }

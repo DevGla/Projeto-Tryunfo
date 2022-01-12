@@ -18,11 +18,10 @@ class App extends React.Component {
     };
   }
 
-  handleChangeCheckBox = (event) => {
-    const { name, checked, type, value } = event.target;
-    const values = type === 'checkbox' ? checked : value;
+  onInputChange = (evento) => {
+    const { name } = evento.target;
     this.setState({
-      [name]: values,
+      [name]: evento.target.value,
     });
   };
 
@@ -53,7 +52,7 @@ class App extends React.Component {
             cardTrunfo={ false }
             hasTrunfo={ false }
             // isSaveButtonDisabled={ false }
-            // onInputChange={ onInputChange }
+            onInputChange={ this.onInputChange }
             // onSaveButtonClick={ onSaveButtonClick }
           />
           <Card

@@ -97,7 +97,7 @@ class Form extends React.Component {
             <option>muito raro</option>
           </select>
           <label htmlFor="superTrunfo">
-            SuperTrunfo
+            CheckBoxDaQuestão3
             <input
               type="checkbox"
               name="cardTrunfo"

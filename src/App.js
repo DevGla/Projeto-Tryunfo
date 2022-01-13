@@ -13,7 +13,7 @@ class App extends React.Component {
       cardAttr3: 0,
       cardImage: '',
       cardRare: '',
-      // cardTrunfo: false,
+      cardTrunfo: false,
       // hasTrunfo: false,
     };
   }
@@ -34,7 +34,7 @@ class App extends React.Component {
       cardAttr3,
       cardImage,
       cardRare,
-      // cardTrunfo,
+      cardTrunfo,
       // hasTrunfo,
     } = this.state;
     return (
@@ -56,14 +56,14 @@ class App extends React.Component {
             // onSaveButtonClick={ onSaveButtonClick }
           />
           <Card
-            cardName=""
-            cardDescription=""
-            cardAttr1=""
-            cardAttr2=""
-            cardAttr3=""
-            cardImage=""
-            cardRare=""
-            cardTrunfo={ false }
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
           />
         </span>
       </div>

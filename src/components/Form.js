@@ -108,7 +108,6 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="botao">
-            Salvar
             <input
               type="button"
               id="botao"
@@ -116,6 +115,7 @@ class Form extends React.Component {
               disabled={ isSaveButtonDisabled }
               onClick={ onSaveButtonClick }
             />
+            Salvar
           </label>
         </form>
       </div>

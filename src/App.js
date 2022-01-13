@@ -12,18 +12,63 @@ class App extends React.Component {
       cardAttr2: 0,
       cardAttr3: 0,
       cardImage: '',
-      cardRare: '',
+      cardRare: 'normal',
       cardTrunfo: false,
       // hasTrunfo: false,
       isSaveButtonDisabled: true,
+      card: [{}],
     };
     this.handleChange = this.handleChange.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
   }
 
   handleChange(evento) {
     const { name, type, value, checked } = evento.target;
     const getValue = type === 'checkbox' ? checked : value;
     this.setState({ [name]: getValue }, () => this.verfifyButton());
+  }
+
+  onSaveButtonClick() {
+    const {
+      card,
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      isSaveButtonDisabled,
+      // hasTrunfo,
+    } = this.state;
+
+    const input = {
+      card,
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      isSaveButtonDisabled,
+      // hasTrunfo,
+    };
+
+    this.setState((currentState) => ({
+      card: [...currentState.card, input],
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      // hasTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
+    console.log(card);
   }
 
   verfifyButton = () => {
@@ -36,6 +81,7 @@ class App extends React.Component {
       cardImage,
       cardRare,
       // isSaveButtonDisabled,
+      // hasTrunfo,
     } = this.state;
 
     const sumAtr = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);

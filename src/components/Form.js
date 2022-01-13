@@ -97,7 +97,7 @@ class Form extends React.Component {
             <option>muito raro</option>
           </select>
           <label htmlFor="superTrunfo">
-            CheckBoxDaQuestão3
+            Super Trunfo
             <input
               type="checkbox"
               name="cardTrunfo"
@@ -108,6 +108,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="botao">
+            Salvar
             <input
               type="button"
               id="botao"

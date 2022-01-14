@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 
 class Card extends React.Component {
   render() {
+    // Função da QUESTÃO 4, Ao receber cardTrunfo === true renderiza uma tag <p> escrito Super Trunfo - linha 32.
     function trunfo(cardTrunfo) {
       if (cardTrunfo === false) {
         return null;

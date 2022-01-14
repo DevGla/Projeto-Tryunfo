@@ -5,10 +5,10 @@ class Card extends React.Component {
   render() {
     // Função da QUESTÃO 4, Ao receber cardTrunfo === true renderiza uma tag <p> escrito Super Trunfo - linha 32.
     function trunfo(cardTrunfo) {
-      if (cardTrunfo === false) {
-        return null;
+      if (cardTrunfo === true) {
+        return <p data-testid="trunfo-card">Super Trunfo</p>;
       }
-      return <p data-testid="trunfo-card">Super Trunfo</p>;
+      return null;
     }
     const {
       cardName,

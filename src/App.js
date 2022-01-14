@@ -145,16 +145,7 @@ class App extends React.Component {
             onSaveButtonClick={ this.onSaveButtonClick }
           />
           {/* QUESTÃO 3 - Criação do componente Card e suas props necessárias e renderização no App.js */}
-          <Card
-            cardName={ cardName }
-            cardDescription={ cardDescription }
-            cardAttr1={ cardAttr1 }
-            cardAttr2={ cardAttr2 }
-            cardAttr3={ cardAttr3 }
-            cardImage={ cardImage }
-            cardRare={ cardRare }
-            cardTrunfo={ cardTrunfo }
-          />
+          
         </span>
         { carts.map((cards) => (
           <div key={ cards.cardName }>

@@ -156,11 +156,6 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </span>
-        { card.map((cards) => (
-          <div key={ cards.cardName }>
-            <Card { ...cards } />
-          </div>
-        ))}
       </div>
     );
   }

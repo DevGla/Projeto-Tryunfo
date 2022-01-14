@@ -3,21 +3,20 @@ import Form from './components/Form';
 import Card from './components/Card';
 
 class App extends React.Component {
-  // QUESTÃO 4 - Criação do estado incial
   constructor() {
     super();
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
-      cardImage: '',
-      cardRare: 'normal',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       cardTrunfo: false,
-      isSaveButtonDisabled: true,
-      carts: [{}],
+      cardImage: '',
+      carts: [],
+      cardRare: '',
       hasTrunfo: false,
+      isSaveButtonDisabled: true,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,52 +24,46 @@ class App extends React.Component {
     this.verfifyButton = this.verfifyButton.bind(this);
   }
 
-  // Função dentro da QUESTÃO 4, Responsável por Capturar o que foi escrito nos inputs e atualiza o estado que é mostrado na tela através do componente Card, Ao clicar no botão super trunfo, atualizamos o estado (cardTrunfo) para True, dentro do componente Card tem a função Trunfo().
-
   handleChange(evento) {
-    evento.preventDefault();
     const { name, type, value, checked } = evento.target;
     const getValue = type === 'checkbox' ? checked : value;
     this.setState({ [name]: getValue }, () => this.verfifyButton());
   }
 
-  onSaveButtonClick() {
+  onSaveButtonClick(evento) {
+    evento.preventDefault();
     const {
       cardName,
       cardDescription,
+      cardImage,
       cardAttr1,
       cardAttr2,
       cardAttr3,
-      cardImage,
+      cardTrunfo,
       cardRare,
-      hasTrunfo,
-      isSaveButtonDisabled,
     } = this.state;
 
     const input = {
       cardName,
       cardDescription,
+      cardImage,
       cardAttr1,
       cardAttr2,
       cardAttr3,
-      cardImage,
+      cardTrunfo,
       cardRare,
-      isSaveButtonDisabled,
-      hasTrunfo,
     };
 
     this.setState((currentState) => ({
       carts: [...currentState.carts, input],
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
       cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       hasTrunfo: !currentState.hasTrunfo,
-      isSaveButtonDisabled: true,
+      cardRare: 'normal',
     }));
   }
 
@@ -117,9 +110,9 @@ class App extends React.Component {
       cardAttr1,
       cardAttr2,
       cardAttr3,
+      cardTrunfo,
       cardImage,
       cardRare,
-      cardTrunfo,
       hasTrunfo,
       carts,
       isSaveButtonDisabled,
@@ -127,31 +120,39 @@ class App extends React.Component {
     return (
       <div>
         <h1>Tryunfo</h1>
-        <span>
-          {/* QUESTÃO 1 Criando componente Form e renderização no App.js */}
-          {/* QUESTÃO 2 adicionando props ao Formulário */}
+        <div>
           <Form
+            onInputChange={ this.handleChange }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onSaveButtonClick={ this.onSaveButtonClick }
             cardName={ cardName }
             cardDescription={ cardDescription }
             cardAttr1={ cardAttr1 }
             cardAttr2={ cardAttr2 }
             cardAttr3={ cardAttr3 }
+            cardTrunfo={ cardTrunfo }
+            cardImage={ cardImage }
+            hasTrunfo={ hasTrunfo }
+            cardRare={ cardRare }
+          />
+          <Card
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardTrunfo={ cardTrunfo }
             cardImage={ cardImage }
             cardRare={ cardRare }
-            cardTrunfo={ false }
-            hasTrunfo={ hasTrunfo }
-            isSaveButtonDisabled={ isSaveButtonDisabled }
-            onInputChange={ this.handleChange }
-            onSaveButtonClick={ this.onSaveButtonClick }
           />
-          {/* QUESTÃO 3 - Criação do componente Card e suas props necessárias e renderização no App.js */}
-          
-        </span>
-        { carts.map((cards) => (
-          <div key={ cards.cardName }>
-            <Card { ...cards } />
+          <div>
+            { carts.map((cards) => (
+              <div key={ cards.cardName }>
+                <Card { ...cards } />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     );
   }
